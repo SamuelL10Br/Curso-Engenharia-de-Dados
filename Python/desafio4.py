@@ -25,3 +25,15 @@ notas = [float(aluno["nota"]) for aluno in alunos]
 media = sum(notas) / len(notas)
 
 print(f"\nMédia das notas: {media:.2f}")
+
+# Para arquivos do tipo JSON
+import json
+resultado = {
+    "media_geral": round(media, 2),   # duas casas decimais
+    "total_alunos": len(alunos)
+}
+
+with open("resultado.json", "w", encoding="utf-8") as f:
+    json.dump(resultado, f, ensure_ascii=False, indent=4)
+
+print("Dados salvos em resultado.json")

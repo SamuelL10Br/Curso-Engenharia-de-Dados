@@ -33,3 +33,27 @@ with open("novos_alunos.csv", "w", newline="", encoding="utf-8") as arquivo_csv:
 
 print("Arquivo 'novos_alunos.csv' criado com sucesso!")
 
+#JSON
+import json
+
+# --- Ler arquivo JSON ---
+with open("dados.json", "r", encoding="utf-8") as arquivo_json:
+    dados = json.load(arquivo_json)
+
+print("Nome:", dados["nome"])
+print("Curso:", dados["curso"])
+print("Notas:", dados["notas"])
+
+#Criando um arquivo JSON para ser lido
+novo_dado = {
+    "nome": "Samuel",
+    "idade": 22,
+    "curso": "Engenharia de Dados",
+    "nota_final": 9.1
+}
+
+with open("novo_dado.json", "w", encoding="utf-8") as arquivo_json:
+    json.dump(novo_dado, arquivo_json, ensure_ascii=False, indent=4)
+
+print("Arquivo JSON criado com sucesso!")
+
